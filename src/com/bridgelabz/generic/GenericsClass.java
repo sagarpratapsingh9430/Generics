@@ -2,19 +2,25 @@ package com.bridgelabz.generic;
 
 public class GenericsClass<T extends Comparable> {
 
-    public static <T extends Comparable> T testMaximum(T ... elements){
-        T max = elements[0];
-        for (T element:elements) {
-            if (element.compareTo(max)>0){
-                max = element;
-            }
-        }
-        return max;
+    public static <T extends Comparable> void testMaximum(T x, T y, T z){
+        T max = x;
+       if (x.compareTo(y)>0 && x.compareTo(z)>0){
+           max = x;
+       } else if (y.compareTo(z)>0) {
+           max = y;
+       }else {
+           max = z;
+       }
+        System.out.println("Max = "+max);
+    }
+
+    public <T extends Comparable> void printMax(T x,T y, T z){
+        GenericsClass.testMaximum(x,y,z);
     }
     public static void main(String[] args) {
-        System.out.println("Find Maximum Problem using Generics");
-        System.out.println(testMaximum(41,92,2,3,100,54));
-        System.out.println(testMaximum(4.7F,8.9F,9.0F,1.9F));
-        System.out.println(testMaximum("Apple","Peach","Mango","Banana"));
+        GenericsClass genericsClass = new GenericsClass();
+        genericsClass.printMax(9,5,1);
+        genericsClass.printMax(4.7F,6.9F,4.1F);
+        GenericsClass.testMaximum("Apple","Peach","Banana");
     }
 }
