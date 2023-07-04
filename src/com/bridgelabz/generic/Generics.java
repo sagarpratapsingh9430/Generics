@@ -23,12 +23,26 @@ public class Generics {
         }
         System.out.println("Maximum number from " + x +", " +y +" and "+ z + " is: " + max);
     }
+
+    void maxString(String x, String y,String z){
+        String max = x;
+        if (x.compareTo(y)>0 && x.compareTo(z)>0){
+            max = x;
+        }else if (y.compareTo(z)>0){
+            max = y;
+        }else {
+            max = z;
+        }
+        System.out.println("Given 3 Strings " + x +", " +y +" and "+ z + " find the maximum is: " + max);
+    }
     public static void main(String[] args) {
         System.out.println("Find Maximum Problem using Generics");
        Generics generics = new Generics();
-       
+
        generics.maxNumberInInteger(5,1,9);
 
        generics.maxNumberInFloat(4.0F,5.6F,2.7F);
+
+       generics.maxString("Apple","Peach","Banana");
     }
 }
